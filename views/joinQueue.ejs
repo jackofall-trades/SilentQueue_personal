@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silent Queue App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 min-h-screen flex items-center justify-center p-6">
+  <div class="w-full max-w-md mx-auto"> 
+  <!-- Join Queue (for Patients) -->
+    <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <h2 class="text-2xl font-semibold text-center text-green-700 mb-4">Join Queue</h2>
+        <input type="text" placeholder="Username" class="w-full mb-3 px-4 py-2 border rounded focus:ring-2 focus:ring-green-300" />
+        <input type="text" placeholder="Clinic No." class="w-full mb-3 px-4 py-2 border rounded focus:ring-2 focus:ring-green-300" />
+        <input type="text" placeholder="Department" class="w-full mb-4 px-4 py-2 border rounded focus:ring-2 focus:ring-green-300" />
+        <button onclick="window.location.href='queueStatus.ejs'" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Enter</button>
+    </div>
+  </div> 
+</body>
