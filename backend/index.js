@@ -24,9 +24,24 @@ app.use(express.static(path.join(__dirname, "../public"))); // for CSS or images
 // }).then(() => console.log("MongoDB connected"))
 //   .catch(err => console.log("MongoDB error:", err));
 
+//render the landing page
+app.get("/", (req, res) => {
+  res.render("landing_page");
+});
+
+// Render the login page
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
 // Render the signup form
 app.get("/signup", (req, res) => {
   res.render("Sign_Up");
+});
+
+// Render the queue-status page
+app.get("/queue-status", (req, res) => {
+  res.render("queueStatus");
 });
 
 // Handle form submission and log input
@@ -34,16 +49,25 @@ app.post("/register", (req, res) => {
   console.log("Form submitted:");
   console.log(req.body); 
   let {username, password, role} = req.body;
-  if (role == "patient"){
-    res.render("/joinQueue");
+  if (role === "patient"){
+    res.redirect("/join-queue");
   } else {
-    res.render("/queueOverview");
+    res.redirect("/queue-overview");
   }
+});
+
+// Add routes for join queue and queue overview
+app.get("/join-queue", (req, res) => {
+  res.render("joinQueue");
+});
+
+app.get("/queue-overview", (req, res) => {
+  res.render("queueOverview");
 });
 
 // Start server
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/signup`);
+  console.log(`Server running at http://localhost:${port}/`);
 });
 
 
