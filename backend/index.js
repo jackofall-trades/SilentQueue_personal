@@ -13,7 +13,6 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
-app.use(express.static(path.join(__dirname, "../public"))); // for CSS or images
 
 // MongoDB & models (commented out for now)
 // const mongoose = require("mongoose");
@@ -64,6 +63,8 @@ app.get("/join-queue", (req, res) => {
 app.get("/queue-overview", (req, res) => {
   res.render("queueOverview");
 });
+
+app.use(express.static(path.join(__dirname, "../public"))); // for CSS or images
 
 // Start server
 app.listen(port, () => {
